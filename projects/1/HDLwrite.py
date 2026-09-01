@@ -21,4 +21,9 @@ def mux4way16_gen():
         for n in range(16):
             file.write(f"Mux4Way(a=a[{n}], b=b[{n}], c=c[{n}], d=d[{n}], sel=sel, out=out[{n}]);\n")
 
-mux4way16_gen()
+def mux8way16_gen():
+    with open("generated.txt", "w") as file:
+        for n in range(16):
+            file.write(f"Mux8Way(a=a[{n}], b=b[{n}], c=c[{n}], d=d[{n}], e=e[{n}], f=f[{n}], g=g[{n}], h=h[{n}], sel=sel, out=out[{n}]);\n")
+
+mux8way16_gen()

@@ -5,21 +5,7 @@ CHIP Mux4Way {
 
     
     PARTS:
-    Not(in=sel[0], out=nsel0);
-    Not(in=sel[1], out=nsel1);
-
-    And(a=nsel0, b=nsel1, out=astate);
-    And(a=sel[0], b=nsel1, out=bstate);
-    And(a=nsel0, b=sel[1], out=cstate);
-    And(a=sel[0], b=sel[1], out=dstate);
-
-    And(a=a, b=astate, out=case1);
-    And(a=b, b=bstate, out=case2);
-    And(a=c, b=cstate, out=case3);
-    And(a=d, b=dstate, out=case4);
-
-    Or(a=case1, b=case2, out=combinedCase);
-    Or(a=case3, b=case4, out=combinedCase2);
-    Or(a=combinedCase, b=combinedCase2, out=out);
-
+    Mux(a=a, b=b, sel=sel[0], out=out0);
+    Mux(a=c, b=d, sel=sel[0], out=out1);
+    Mux(a=out0, b=out1, sel=sel[1], out=out);
 }
