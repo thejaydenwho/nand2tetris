@@ -11,8 +11,6 @@ CHIP And {
     OUT out;
    
     PARTS:
-    //// Replace this comment with your code.
     Nand(a=a , b=b , out=outVar);
-    Nand(a=a, b=b, out=outVar2);
-    Nand(a=outVar , b = outVar2 , out=out );  
+    Nand(a=outVar , b = outVar , out=out);  
 }
