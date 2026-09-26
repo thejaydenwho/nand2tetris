@@ -3,13 +3,16 @@
 // by Nisan and Schocken, MIT Press.
 // File name: projects/2/FullAdder.hdl
 /**
- * Computes the sum of three bits.
- */
+* Computes the sum of three bits.
+*/
 CHIP FullAdder {
-    IN a, b, c;  // 1-bit inputs
-    OUT sum,     // Right bit of a + b + c
-        carry;   // Left bit of a + b + c
+   IN a, b, c;  // 1-bit inputs
+   OUT sum,     // Right bit of a + b + c
+       carry;   // Left bit of a + b + c
 
-    PARTS:
-    //// Replace this comment with your code.
+
+   PARTS:
+   HalfAdder(a=a, b=b, sum=preSum, carry=preCarry);
+   HalfAdder(a=preSum, b=c, sum=sum, carry=preCarry2);
+   Or(a=preCarry, b=preCarry2, out=carry);
 }
